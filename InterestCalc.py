@@ -6,7 +6,9 @@ root = Tk()
 root.title('Interest Calculator')
 
 bod = Frame(root, bg='white')
-bod.pack()
+bod.pack(side='left')
+screen = Frame(root, bg='white')
+screen.pack(side='right')
 
 #*** Labels ***
 p = Label(bod, text='Principal')
@@ -49,9 +51,11 @@ def compintCalc():
     step2 = ncalc*tcalc
     step3 = math.pow(step1, step2)
     step4 = pcalc*step3
-    outputtext = Text(bod)
+    step5 = '$'+str(step4)
+    outputtext = Text(screen)
+    outputtext.config(bg='grey')
     outputtext.pack(side=BOTTOM)
-    outputtext.insert(END, step4)
+    outputtext.insert(END, step5)
 
 
 def simpleintCalc():
@@ -62,9 +66,11 @@ def simpleintCalc():
     simptcalc = int(str(tblank.get()))
     simprcalcb = float(simprcalc/100)
     step1 = simppcalc*simprcalcb*simptcalc
-    outputtext2 = Text(bod)
+    step2 = '$'+str(step1)
+    outputtext2 = Text(screen)
+    outputtext2.config(bg='grey')
     outputtext2.pack(side=BOTTOM)
-    outputtext2.insert(END, step1)
+    outputtext2.insert(END, step2)
 
 def clearbutton():
     """Clears entry fields and inserts zeroes"""
@@ -89,6 +95,6 @@ ClearButton = Button(bod, text='Clear', command=clearbutton)
 ClearButton.grid(row=3, column=2)
 
 
-root.geometry('475x115')
+root.geometry('600x115')
 
 root.mainloop()
