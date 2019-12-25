@@ -1,11 +1,11 @@
-from Tkinter import *
+from tkinter import *
 import math
 
 root = Tk()
 
 root.title('Interest Calculator')
 
-bod = Frame(root, bg='white')
+bod = Frame(root, bg='#FFFFFF')
 bod.pack(side='left')
 screen = Frame(root, bg='white')
 screen.pack(side='right')
@@ -66,7 +66,7 @@ def simpleintCalc():
     simptcalc = int(str(tblank.get()))
     simprcalcb = float(simprcalc/100)
     step1 = simppcalc*simprcalcb*simptcalc
-    step2 = '$'+str(step1)
+    step2 = '$'+str(step1) + ' accrued'
     outputtext2 = Text(screen)
     outputtext2.config(bg='grey')
     outputtext2.pack(side=BOTTOM)
@@ -91,8 +91,8 @@ SimpCalcButton.grid(row=1, column=2)
 CompCalcButton = Button(bod, text='Compound', command=compintCalc)
 CompCalcButton.grid(row=2, column=2)
 
-ClearButton = Button(bod, text='Clear', command=clearbutton)
-ClearButton.grid(row=3, column=2)
+#ClearButton = Button(bod, text='Clear', command=clearbutton)
+#ClearButton.grid(row=3, column=2)
 
 
 root.geometry('600x115')
